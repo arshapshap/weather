@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Main</string>
+    <string name="enter_your_city">Enter your city</string>
+    <string name="show_the_weather">Show the weather</string>
+    <string name="close">Close</string>
+    <string name="get_weather_by_location">Get the weather by location</string>
+    <string name="details">Details</string>
+    <string name="no_data_uploaded">No data uploaded</string>
+    <string name="temperature_in_celsius">%d°C</string>
+    <string name="humidity_as_percentage">%d%%</string>
+    <string name="wind_speed_in_meters_per_second">%.1f m/s</string>
+    <string name="pressure_in_millimeters_of_mercury">%d mmHg</string>
 </resources>

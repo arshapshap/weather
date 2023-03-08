@@ -1,7 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/weatherInfoView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/temperatureTextView"
+        app:layout_constraintTop_toTopOf="@id/cityNameTextView"
+        app:layout_constraintStart_toStartOf="@id/temperatureTextView"
+        app:layout_constraintEnd_toEndOf="@id/temperatureTextView" />
+
+    <TextView
+        android:id="@+id/cityNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        style="@style/Text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.1"
+        tools:text="Kazan" />
+
+    <TextView
+        android:id="@+id/temperatureTextView"
+        style="@style/Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="70sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cityNameTextView"
+        app:layout_constraintVertical_bias="0.1"
+        tools:text="15°C" />
+
+    <EditText
+        android:id="@+id/cityNameEditText"
+        style="@style/Text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:hint="@string/enter_your_city"
+        android:inputType="text"
+        app:layout_constraintVertical_bias="0.45"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/getWeatherByCityNameButton"
+        style="@style/Button"
+        android:text="@string/show_the_weather"
+        app:layout_constraintEnd_toStartOf="@id/getWeatherByLocationButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cityNameEditText" />
+
+    <ImageButton
+        android:id="@+id/getWeatherByLocationButton"
+        style="@style/Button"
+        android:layout_width="70dp"
+        android:src="@drawable/ic_location"
+        android:contentDescription="@string/get_weather_by_location"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/getWeatherByCityNameButton"
+        app:layout_constraintTop_toBottomOf="@+id/cityNameEditText" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

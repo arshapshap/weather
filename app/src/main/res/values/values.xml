@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Text">
+        <item name="fontFamily">sans-serif-light</item>
+    </style>
+    <style name="Button">
+        <item name="fontFamily">sans-serif</item>
+        <item name="android:layout_margin">20dp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">70dp</item>
+    </style>
+    <style name="OutlinedButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="fontFamily">sans-serif</item>
+        <item name="android:layout_margin">20dp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">70dp</item>
+    </style>
+</resources>
