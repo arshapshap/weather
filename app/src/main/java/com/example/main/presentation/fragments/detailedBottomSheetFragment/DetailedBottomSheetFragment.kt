@@ -1,4 +1,4 @@
-package com.example.main.presentation
+package com.example.main.presentation.fragments.detailedBottomSheetFragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.main.R
 import com.example.main.databinding.FragmentBottomSheetDetailedBinding
 import com.example.main.domain.models.WeatherInfo
-import com.example.main.presentation.recyclerview.WeatherParameter
+import com.example.main.presentation.fragments.detailedBottomSheetFragment.recyclerview.WeatherParameter
 import com.example.main.recyclerview.WeatherParametersAdapter
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 

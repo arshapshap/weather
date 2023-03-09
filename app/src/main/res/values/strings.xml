@@ -10,4 +10,7 @@
     <string name="humidity_as_percentage">%d%%</string>
     <string name="wind_speed_in_meters_per_second">%.1f m/s</string>
     <string name="pressure_in_millimeters_of_mercury">%d mmHg</string>
+    <string name="location_permission_required">Permission is required</string>
+    <string name="location_permission_required_message">Location access is required to display the weather in your city</string>
+    <string name="ok">OK</string>
 </resources>

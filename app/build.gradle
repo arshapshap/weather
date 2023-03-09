@@ -28,6 +28,9 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+        freeCompilerArgs += [
+                "-Xjvm-default=all",
+        ]
     }
 
     buildFeatures {
@@ -41,6 +44,14 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.5.0'
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'com.google.android.gms:play-services-location:21.0.1'
+
+    def coroutines_version = '1.6.4'
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:${coroutines_version}"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:${coroutines_version}"
+
+    def lifecycle_version = '2.5.1'
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:${lifecycle_version}"
 
     def retrofit_version = '2.9.0'
     implementation "com.squareup.retrofit2:retrofit:${retrofit_version}"
