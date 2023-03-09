@@ -13,7 +13,6 @@
         android:textSize="34sp"
         android:layout_margin="20dp"
         style="@style/Text"
-        app:layout_constraintBottom_toTopOf="@id/weatherImageView"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,11 +20,10 @@
 
     <ImageView
         android:id="@+id/weatherImageView"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        app:layout_constraintBottom_toTopOf="@id/infoRecyclerView"
-        app:layout_constraintTop_toBottomOf="@id/titleTextView"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/titleTextView"
         app:layout_constraintEnd_toEndOf="parent"
         tools:src="@drawable/ic_launcher_background"/>
 

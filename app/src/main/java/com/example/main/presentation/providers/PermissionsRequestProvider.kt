@@ -11,8 +11,6 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.PermissionChecker
 import com.example.main.R
 
-private const val PERMISSION_REQUEST_CODE = 1
-
 class PermissionsRequestProvider(
     private val activity: AppCompatActivity,
     private val onSinglePermissionHandled: (Boolean) -> Unit

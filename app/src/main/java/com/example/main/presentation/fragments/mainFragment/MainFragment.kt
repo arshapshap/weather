@@ -41,7 +41,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 
         viewModel.weatherInfoLive.observe(viewLifecycleOwner) { info ->
             binding?.cityNameTextView?.text =
-                info?.cityName ?: getString(R.string.no_data_uploaded)
+                info?.cityName ?: ""
             binding?.temperatureTextView?.text =
                 if (info != null) getString(
                     R.string.temperature_in_celsius,
@@ -56,6 +56,11 @@ class MainFragment : Fragment(R.layout.fragment_main) {
                 if (!isLoading) View.VISIBLE else View.INVISIBLE
             binding?.temperatureTextView?.visibility =
                 if (!isLoading) View.VISIBLE else View.INVISIBLE
+        }
+
+        viewModel.errorLive.observe(viewLifecycleOwner) { isError ->
+            if (isError)
+                binding?.cityNameTextView?.text = getString(R.string.not_found_error)
         }
 
         binding?.run {
