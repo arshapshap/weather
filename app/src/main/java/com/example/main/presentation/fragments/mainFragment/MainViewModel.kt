@@ -1,5 +1,6 @@
 package com.example.main.presentation.fragments.mainFragment
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -39,6 +40,7 @@ class MainViewModel(
                 val response = getWeatherByCityNameUseCase.execute(cityName)
                 weatherInfoLiveMutable.postValue(response)
             } catch (e: Exception) {
+                Log.e("AAA", e.toString())
                 errorLiveMutable.postValue(true)
             } finally {
                 loadingLiveMutable.postValue(false)
