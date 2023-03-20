@@ -28,8 +28,7 @@
         android:id="@+id/cityNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="30sp"
-        style="@style/Text"
+        style="@style/Text.Light.Medium"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,10 +38,9 @@
 
     <TextView
         android:id="@+id/temperatureTextView"
-        style="@style/Text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="70sp"
+        style="@style/Text.Light.Large"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cityNameTextView"
@@ -51,12 +49,11 @@
 
     <EditText
         android:id="@+id/cityNameEditText"
-        style="@style/Text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:hint="@string/enter_city_name"
-        android:inputType="text"
+        style="@style/View.EditText"
         app:layout_constraintVertical_bias="0.45"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -65,20 +62,17 @@
 
     <Button
         android:id="@+id/getWeatherByCityNameButton"
-        style="@style/Button"
         android:text="@string/show_the_weather"
+        style="@style/View.Button"
         app:layout_constraintEnd_toStartOf="@id/getWeatherByLocationButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cityNameEditText" />
 
     <ImageButton
         android:id="@+id/getWeatherByLocationButton"
-        style="@style/Button"
-        android:layout_width="70dp"
         android:src="@drawable/ic_location"
         android:contentDescription="@string/get_weather_by_location"
-        android:backgroundTint="@color/purple_200"
-        app:tint="@color/black"
+        style="@style/View.Button.ImageButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/getWeatherByCityNameButton"
         app:layout_constraintTop_toBottomOf="@+id/cityNameEditText" />

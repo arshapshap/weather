@@ -1,18 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="Text">
+        <item name="fontFamily">sans-serif</item>
+    </style>
+
+    <style name="Text.Light">
         <item name="fontFamily">sans-serif-light</item>
     </style>
-    <style name="Button">
-        <item name="fontFamily">sans-serif</item>
+
+    <style name="Text.Light.Small">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="Text.Light.Medium">
+        <item name="android:textSize">32sp</item>
+    </style>
+
+    <style name="Text.Light.Large">
+        <item name="android:textSize">70sp</item>
+    </style>
+
+    <style name="View">
+        <item name="android:layout_margin">20dp</item>
+    </style>
+
+    <style name="View.Button">
+        <item name="android:textAllCaps">true</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">70dp</item>
+    </style>
+
+    <style name="View.Button.ImageButton">
+        <item name="backgroundTint">?attr/colorPrimary</item>
+        <item name="android:tint">?attr/colorOnPrimary</item>
+        <item name="android:layout_width">70dp</item>
+    </style>
+
+    <style name="View.Button.OutlinedButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
         <item name="android:layout_margin">20dp</item>
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">70dp</item>
     </style>
-    <style name="OutlinedButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
-        <item name="fontFamily">sans-serif</item>
+
+    <style name="View.EditText" parent="Widget.AppCompat.EditText">
+        <item name="android:textAppearance">@style/Text.Light.Small</item>
         <item name="android:layout_margin">20dp</item>
-        <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">70dp</item>
+        <item name="android:inputType">text</item>
     </style>
 </resources>

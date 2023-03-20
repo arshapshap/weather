@@ -9,10 +9,9 @@
 
     <TextView
         android:id="@+id/parameterNameTextView"
-        style="@style/Text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
+        style="@style/Text.Light.Small"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/valueTextView"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
@@ -22,10 +21,9 @@
 
     <TextView
         android:id="@+id/valueTextView"
-        style="@style/Text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="30sp"
+        style="@style/Text.Light.Medium"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/parameterNameTextView"
