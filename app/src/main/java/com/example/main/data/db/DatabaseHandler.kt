@@ -2,7 +2,7 @@ package com.example.main.data.db
 
 import android.content.Context
 import androidx.room.Room
-import com.example.main.db.mapper.WeatherInfoMapper
+import com.example.main.data.mapper.WeatherInfoMapper
 import com.example.main.domain.models.WeatherInfo
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext

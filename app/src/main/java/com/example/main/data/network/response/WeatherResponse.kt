@@ -1,8 +1,6 @@
-package com.example.main.data.models.response
+package com.example.main.data.network.response
 
 
-import com.example.main.data.network.WEATHER_IMAGES_BASE_URL
-import com.example.main.domain.models.WeatherInfo
 import com.google.gson.annotations.SerializedName
 
 data class WeatherResponse(
@@ -14,15 +12,7 @@ data class WeatherResponse(
     val weather: List<Weather?>?,
     @SerializedName("wind")
     val wind: Wind?
-) {
-    fun toWeatherInfo() = WeatherInfo(
-        cityName = name ?: "",
-        temperatureInCelsius = main?.temp?.toInt() ?: 0,
-        humidityAsPercentage = main?.humidity ?: 0,
-        pressureInMillimetersOfMercury = main?.pressure ?: 0,
-        windSpeedInMetersPerSecond = wind?.speed ?: 0.0,
-        imageUrl = WEATHER_IMAGES_BASE_URL + "${weather?.first()?.icon}@2x.png")
-}
+)
 
 data class Main(
     @SerializedName("humidity")
