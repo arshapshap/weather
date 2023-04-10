@@ -1,6 +1,5 @@
 package com.example.main.data.network
 
-import com.example.main.BuildConfig
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

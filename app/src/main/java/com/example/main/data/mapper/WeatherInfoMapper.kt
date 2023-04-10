@@ -5,6 +5,7 @@ import com.example.main.data.network.WEATHER_IMAGES_BASE_URL
 import com.example.main.db.entity.WeatherInfoEntity
 import com.example.main.domain.models.WeatherInfo
 import java.util.*
+import kotlin.math.roundToInt
 
 object WeatherInfoMapper {
     fun map(weatherInfo: WeatherInfo): WeatherInfoEntity {
@@ -40,7 +41,7 @@ object WeatherInfoMapper {
                 cityName = name ?: "",
                 temperatureInCelsius = main?.temp?.toInt() ?: 0,
                 humidityAsPercentage = main?.humidity ?: 0,
-                pressureInMillimetersOfMercury = main?.pressure ?: 0,
+                pressureInMillimetersOfMercury = ((main?.pressure ?: 0) * 0.75).roundToInt(),
                 windSpeedInMetersPerSecond = wind?.speed ?: 0.0,
                 imageUrl = WEATHER_IMAGES_BASE_URL + "${weather?.first()?.icon}@2x.png"
             )
