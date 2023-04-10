@@ -1,13 +1,17 @@
 package com.example.main.data.mapper
 
+import com.example.main.BuildConfig.WEATHER_IMAGES_BASE_URL
 import com.example.main.data.network.response.WeatherResponse
-import com.example.main.data.network.WEATHER_IMAGES_BASE_URL
 import com.example.main.db.entity.WeatherInfoEntity
 import com.example.main.domain.models.WeatherInfo
 import java.util.*
+import javax.inject.Inject
+import javax.inject.Singleton
 import kotlin.math.roundToInt
 
-object WeatherInfoMapper {
+@Singleton
+class WeatherInfoMapper @Inject constructor() {
+
     fun map(weatherInfo: WeatherInfo): WeatherInfoEntity {
         with(weatherInfo) {
             return WeatherInfoEntity(

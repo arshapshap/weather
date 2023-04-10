@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "Weather")
-data class WeatherInfoEntity (
+data class WeatherInfoEntity(
     @ColumnInfo(name = "city_name") @PrimaryKey var cityName: String,
     @ColumnInfo(name = "temperature_in_celsius") var temperatureInCelsius: Int,
     @ColumnInfo(name = "humidity_as_percentage") var humidityAsPercentage: Int,

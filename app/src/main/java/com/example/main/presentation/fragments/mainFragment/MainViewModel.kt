@@ -1,24 +1,22 @@
 package com.example.main.presentation.fragments.mainFragment
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.main.domain.models.LocationInfo
 import com.example.main.domain.models.WeatherInfo
+import com.example.main.domain.usecases.GetLocationUseCase
 import com.example.main.domain.usecases.GetWeatherByCityNameUseCase
 import com.example.main.domain.usecases.GetWeatherByLocationUseCase
-import com.example.main.presentation.providers.LocationProvider
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import java.lang.Exception
-import java.lang.NullPointerException
+import javax.inject.Inject
 
-class MainViewModel(
+class MainViewModel @Inject constructor(
     private val getWeatherByCityNameUseCase: GetWeatherByCityNameUseCase,
     private val getWeatherByLocationUseCase: GetWeatherByLocationUseCase,
-    private val locationProvider: LocationProvider
+    private val getLocationUseCase: GetLocationUseCase
 ) : ViewModel() {
 
     private val weatherInfoLiveMutable = MutableLiveData<WeatherInfo?>(null)
@@ -36,13 +34,13 @@ class MainViewModel(
         errorLiveMutable.value = false
 
         viewModelScope.launch(Dispatchers.IO) {
-            try {
-                val response = getWeatherByCityNameUseCase.execute(cityName)
-                weatherInfoLiveMutable.postValue(response)
-            } catch (e: Exception) {
-                Log.e("AAA", e.toString())
+            kotlin.runCatching {
+                return@runCatching getWeatherByCityNameUseCase.execute(cityName)
+            }.onSuccess {
+                weatherInfoLiveMutable.postValue(it)
+            }.onFailure {
                 errorLiveMutable.postValue(true)
-            } finally {
+            }.also {
                 loadingLiveMutable.postValue(false)
             }
         }
@@ -55,12 +53,11 @@ class MainViewModel(
 
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                val location = locationProvider.getCurrentLocation()
+                val location = getLocationUseCase.execute()
                 if (location != null) {
                     val response = getWeatherByLocationUseCase.execute(
                         LocationInfo(
-                            location.latitude,
-                            location.longitude
+                            location.latitude, location.longitude
                         )
                     )
                     weatherInfoLiveMutable.postValue(response)
