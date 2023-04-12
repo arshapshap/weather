@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Погода</string>
+    <string name="enter_city_name">Введите название города</string>
+    <string name="show_the_weather">Показать погоду</string>
+    <string name="close">Закрыть</string>
+    <string name="get_weather_by_location">Получить погоду по местоположению</string>
+    <string name="details">Подробности</string>
+    <string name="no_data_uploaded">Нет загруженных данных</string>
+    <string name="temperature_in_celsius">%d°C</string>
+    <string name="humidity_as_percentage">%d%%</string>
+    <string name="wind_speed_in_meters_per_second">%.1f м/с</string>
+    <string name="pressure_in_millimeters_of_mercury">%d mmHg</string>
+    <string name="location_permission_required">Необходимо разрешение</string>
+    <string name="location_permission_required_message">Доступ к местоположению необходим для отображения погоды в Вашем городе</string>
+    <string name="ok">ОК</string>
+    <string name="city">Город</string>
+    <string name="temperature">Температура</string>
+    <string name="humidity">Влажность</string>
+    <string name="pressure">Давление</string>
+    <string name="wind_speed">Скорость ветра</string>
+    <string name="language_code">ru</string>
+    <string name="failed_to_load_forecast">Не удалось загрузить прогноз погоды</string>
+    <string name="network_unavailable">Сеть недоступна</string>
+    <string name="city_not_found">Город не найден</string>
+    <string name="location_unavailable">Местоположение недоступно</string>
+</resources>

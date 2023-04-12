@@ -8,30 +8,33 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.os.bundleOf
+import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.main.R
-import com.example.main.WeatherApplication
 import com.example.main.databinding.FragmentMainBinding
+import com.example.main.di.appComponent
+import com.example.main.di.lazyViewModel
 import com.example.main.presentation.fragments.detailsBottomSheetFragment.DetailsBottomSheetFragment
 import com.example.main.presentation.providers.PermissionsRequestProvider
-import javax.inject.Inject
 
 class MainFragment : Fragment(R.layout.fragment_main) {
 
     private val binding by viewBinding(FragmentMainBinding::bind)
     private var permissionsRequestProvider: PermissionsRequestProvider? = null
 
-    @Inject
-    lateinit var viewModel: MainViewModel
+    private val viewModel: MainViewModel by lazyViewModel {
+        requireContext().appComponent().mainViewModel().create()
+    }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        (context.applicationContext as? WeatherApplication)?.appComponent?.inject(this)
+        context.appComponent().inject(this)
     }
 
     override fun onViewCreated(
@@ -69,8 +72,11 @@ class MainFragment : Fragment(R.layout.fragment_main) {
                 binding.temperatureTextView.isVisible = !isLoading
             }
 
-            errorLive.observe(viewLifecycleOwner) { isError ->
-                if (isError) binding.cityNameTextView.text = getString(R.string.not_found_error)
+            viewModel.errorLive.observe(viewLifecycleOwner) { errorTextResourceId ->
+                binding.weatherInfoContainer.isGone = errorTextResourceId != null
+                errorTextResourceId?.let {
+                    Toast.makeText(context, getString(it), Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }
@@ -90,7 +96,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
                 }
             }
 
-            weatherInfoView.setOnClickListener {
+            weatherInfoContainer.setOnClickListener {
                 if (viewModel.weatherInfoLive.value != null) {
                     showBottomSheetFragment()
                 }

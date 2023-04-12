@@ -37,6 +37,11 @@ android {
                 "-Xjvm-default=all",
         ]
     }
+    kapt {
+        arguments {
+            arg("room.schemaLocation", "$projectDir/schemas")
+        }
+    }
 
     buildFeatures {
         viewBinding true
@@ -56,6 +61,9 @@ dependencies {
 
     def constraint_layout_version = '2.1.4'
     implementation "androidx.constraintlayout:constraintlayout:$constraint_layout_version"
+
+    def fragment_version = '1.5.6'
+    implementation "androidx.fragment:fragment-ktx:$fragment_version"
 
     def play_services_location_version = '21.0.1'
     implementation "com.google.android.gms:play-services-location:$play_services_location_version"

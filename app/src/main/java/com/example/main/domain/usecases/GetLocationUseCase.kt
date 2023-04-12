@@ -6,9 +6,9 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class GetLocationUseCase @Inject constructor(private val locationRepository: LocationRepository) {
+class GetLocationUseCase @Inject constructor(private val repository: LocationRepository) {
 
     fun execute(): LocationInfo? {
-        return locationRepository.getCurrentLocation()
+        return repository.getCurrentLocation()
     }
 }

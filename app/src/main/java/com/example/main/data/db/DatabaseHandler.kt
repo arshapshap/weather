@@ -8,7 +8,7 @@ import kotlinx.coroutines.withContext
 
 object DatabaseHandler {
 
-    const val DATABASE_VERSION = 1
+    const val DATABASE_VERSION = 2
 
     private const val DATABASE_NAME = "weatherDB"
     private var roomDatabase: AppDatabase? = null

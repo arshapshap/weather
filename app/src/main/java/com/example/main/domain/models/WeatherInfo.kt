@@ -1,6 +1,7 @@
 package com.example.main.domain.models
 
 import java.io.Serializable
+import java.util.*
 
 data class WeatherInfo(
     val cityName: String,
@@ -8,5 +9,7 @@ data class WeatherInfo(
     val humidityAsPercentage: Int,
     val pressureInMillimetersOfMercury: Int,
     val windSpeedInMetersPerSecond: Double,
-    val imageUrl: String
+    val imageUrl: String,
+    val locationInfo: LocationInfo,
+    val dateInMilliseconds: Date?
 ) : Serializable

@@ -3,6 +3,7 @@ package com.example.main.data.mapper
 import com.example.main.BuildConfig.WEATHER_IMAGES_BASE_URL
 import com.example.main.data.network.response.WeatherResponse
 import com.example.main.db.entity.WeatherInfoEntity
+import com.example.main.domain.models.LocationInfo
 import com.example.main.domain.models.WeatherInfo
 import java.util.*
 import javax.inject.Inject
@@ -21,6 +22,8 @@ class WeatherInfoMapper @Inject constructor() {
                 pressureInMillimetersOfMercury = pressureInMillimetersOfMercury,
                 windSpeedInMetersPerSecond = windSpeedInMetersPerSecond,
                 imageUrl = imageUrl,
+                latitude = locationInfo.latitude,
+                longitude = locationInfo.longitude,
                 lastUpdate = Calendar.getInstance().timeInMillis
             )
         }
@@ -35,6 +38,11 @@ class WeatherInfoMapper @Inject constructor() {
                 pressureInMillimetersOfMercury = pressureInMillimetersOfMercury,
                 windSpeedInMetersPerSecond = windSpeedInMetersPerSecond,
                 imageUrl = imageUrl,
+                locationInfo = LocationInfo(
+                    latitude = latitude ?: 0.0,
+                    longitude = longitude ?: 0.0
+                ),
+                dateInMilliseconds = null
             )
         }
     }
@@ -47,7 +55,12 @@ class WeatherInfoMapper @Inject constructor() {
                 humidityAsPercentage = main?.humidity ?: 0,
                 pressureInMillimetersOfMercury = ((main?.pressure ?: 0) * 0.75).roundToInt(),
                 windSpeedInMetersPerSecond = wind?.speed ?: 0.0,
-                imageUrl = WEATHER_IMAGES_BASE_URL + "${weather?.first()?.icon}@2x.png"
+                imageUrl = WEATHER_IMAGES_BASE_URL + "${weather?.first()?.icon}@2x.png",
+                locationInfo = LocationInfo(
+                    latitude = coordinates?.latitude ?: 0.0,
+                    longitude = coordinates?.longitude ?: 0.0
+                ),
+                dateInMilliseconds = date?.let { Date(it * 1000) }
             )
         }
     }

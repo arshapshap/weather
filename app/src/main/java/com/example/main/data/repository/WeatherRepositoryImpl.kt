@@ -7,8 +7,9 @@ import com.example.main.domain.models.LocationInfo
 import com.example.main.domain.models.WeatherInfo
 import com.example.main.domain.repository.WeatherRepository
 import java.util.*
+import javax.inject.Inject
 
-class WeatherRepositoryImpl(
+class WeatherRepositoryImpl @Inject constructor(
     private val remoteSource: WeatherApiService,
     private val mapper: WeatherInfoMapper
 ) : WeatherRepository {

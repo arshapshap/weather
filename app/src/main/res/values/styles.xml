@@ -8,6 +8,10 @@
         <item name="fontFamily">sans-serif-light</item>
     </style>
 
+    <style name="Text.Light.ExtraSmall">
+        <item name="android:textSize">14sp</item>
+    </style>
+
     <style name="Text.Light.Small">
         <item name="android:textSize">20sp</item>
     </style>

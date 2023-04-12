@@ -13,5 +13,14 @@
     <string name="location_permission_required">Permission is required</string>
     <string name="location_permission_required_message">Location access is required to display the weather in your city</string>
     <string name="ok">OK</string>
-    <string name="not_found_error">Not found</string>
+    <string name="city">City</string>
+    <string name="temperature">Temperature</string>
+    <string name="humidity">Humidity</string>
+    <string name="pressure">Pressure</string>
+    <string name="wind_speed">Wind speed</string>
+    <string name="language_code">en</string>
+    <string name="failed_to_load_forecast">Failed to load weather forecast</string>
+    <string name="network_unavailable">Network unavailable</string>
+    <string name="city_not_found">City not found</string>
+    <string name="location_unavailable">Location unavailable</string>
 </resources>

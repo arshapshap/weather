@@ -7,9 +7,9 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class GetWeatherByLocationUseCase @Inject constructor(private val weatherRepository: WeatherRepository) {
+class GetWeatherByLocationUseCase @Inject constructor(private val repository: WeatherRepository) {
 
     suspend fun execute(locationInfo: LocationInfo): WeatherInfo? {
-        return weatherRepository.getWeatherByLocation(locationInfo)
+        return repository.getWeatherByLocation(locationInfo)
     }
 }
