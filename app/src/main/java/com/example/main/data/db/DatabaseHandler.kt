@@ -2,7 +2,7 @@ package com.example.main.data.db
 
 import android.content.Context
 import androidx.room.Room
-import com.example.main.db.entity.WeatherInfoEntity
+import com.example.main.data.db.entity.WeatherInfoEntity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -21,20 +21,20 @@ object DatabaseHandler {
 
     suspend fun addWeatherInfoEntity(weatherInfoEntity: WeatherInfoEntity) {
         withContext(Dispatchers.IO) {
-            roomDatabase?.getUserDao()?.addWeatherInfo(weatherInfoEntity)
+            roomDatabase?.getWeatherDao()?.addWeatherInfo(weatherInfoEntity)
         }
     }
 
     suspend fun getWeatherInfoByCityName(cityName: String): WeatherInfoEntity? {
         val weatherInfoEntity = withContext(Dispatchers.IO) {
-            roomDatabase?.getUserDao()?.getWeatherInfoByCityName(cityName)
+            roomDatabase?.getWeatherDao()?.getWeatherInfoByCityName(cityName)
         } ?: return null
         return weatherInfoEntity
     }
 
     suspend fun getLastUpdateByCityName(cityName: String): Long {
         val weatherInfoEntity = withContext(Dispatchers.IO) {
-            roomDatabase?.getUserDao()?.getWeatherInfoByCityName(cityName)
+            roomDatabase?.getWeatherDao()?.getWeatherInfoByCityName(cityName)
         }
         return weatherInfoEntity?.lastUpdate ?: 0
     }

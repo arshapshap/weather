@@ -1,7 +1,7 @@
-package com.example.main.db.dao
+package com.example.main.data.db.dao
 
 import androidx.room.*
-import com.example.main.db.entity.WeatherInfoEntity
+import com.example.main.data.db.entity.WeatherInfoEntity
 
 @Dao
 interface WeatherDao {

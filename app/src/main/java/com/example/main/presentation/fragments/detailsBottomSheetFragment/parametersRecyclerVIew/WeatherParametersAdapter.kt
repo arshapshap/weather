@@ -1,10 +1,9 @@
-package com.example.main.recyclerview
+package com.example.main.presentation.fragments.detailsBottomSheetFragment.parametersRecyclerVIew
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.main.databinding.ItemWeatherParameterBinding
-import com.example.main.presentation.fragments.detailsBottomSheetFragment.parametersRecyclerVIew.WeatherParameter
 
 class WeatherParametersAdapter(
     private val list: List<WeatherParameter>,

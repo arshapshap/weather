@@ -1,4 +1,4 @@
-package com.example.main.recyclerview
+package com.example.main.presentation.fragments.detailsBottomSheetFragment.forecastRecyclerVIew
 
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -6,6 +6,7 @@ import com.example.main.R
 import com.example.main.databinding.ItemWeatherForecastBinding
 import com.example.main.domain.models.WeatherInfo
 import java.text.SimpleDateFormat
+import java.util.*
 
 class WeatherForecastHolder(
     private val binding: ItemWeatherForecastBinding
@@ -19,7 +20,7 @@ class WeatherForecastHolder(
                 R.string.temperature_in_celsius,
                 weatherInfo.temperatureInCelsius
             )
-            dateTextView.text = weatherInfo.dateInMilliseconds?.let { SimpleDateFormat("MMM dd, HH:mm").format(it) }
+            dateTextView.text = weatherInfo.date?.let { SimpleDateFormat("MMM dd, HH:mm", Locale.getDefault()).format(it) }
         }
     }
 }

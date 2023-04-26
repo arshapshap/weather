@@ -13,9 +13,10 @@ import com.example.main.databinding.FragmentBottomSheetDetailsBinding
 import com.example.main.di.appComponent
 import com.example.main.di.lazyViewModel
 import com.example.main.domain.models.WeatherInfo
+import com.example.main.presentation.fragments.detailsBottomSheetFragment.forecastRecyclerVIew.WeatherForecastAdapter
 import com.example.main.presentation.fragments.detailsBottomSheetFragment.parametersRecyclerVIew.WeatherParameter
-import com.example.main.recyclerview.WeatherForecastAdapter
-import com.example.main.recyclerview.WeatherParametersAdapter
+import com.example.main.presentation.fragments.detailsBottomSheetFragment.parametersRecyclerVIew.WeatherParametersAdapter
+import com.example.main.presentation.getSerializableCompat
 import com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_EXPANDED
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -39,7 +40,9 @@ class DetailsBottomSheetFragment :
         super.onViewCreated(view, savedInstanceState)
         (dialog as? BottomSheetDialog)?.behavior?.state = STATE_EXPANDED
 
-        weatherInfo = arguments?.getSerializable(WEATHER_INFO_KEY) as WeatherInfo
+
+        weatherInfo = arguments?.getSerializableCompat(WEATHER_INFO_KEY) ?: throw IllegalArgumentException()
+
         initViews(weatherInfo)
 
         subscribe()

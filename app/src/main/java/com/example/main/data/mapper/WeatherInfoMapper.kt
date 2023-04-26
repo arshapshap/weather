@@ -1,8 +1,8 @@
 package com.example.main.data.mapper
 
 import com.example.main.BuildConfig.WEATHER_IMAGES_BASE_URL
+import com.example.main.data.db.entity.WeatherInfoEntity
 import com.example.main.data.network.response.WeatherResponse
-import com.example.main.db.entity.WeatherInfoEntity
 import com.example.main.domain.models.LocationInfo
 import com.example.main.domain.models.WeatherInfo
 import java.util.*
@@ -42,7 +42,7 @@ class WeatherInfoMapper @Inject constructor() {
                     latitude = latitude ?: 0.0,
                     longitude = longitude ?: 0.0
                 ),
-                dateInMilliseconds = null
+                date = null
             )
         }
     }
@@ -60,7 +60,7 @@ class WeatherInfoMapper @Inject constructor() {
                     latitude = coordinates?.latitude ?: 0.0,
                     longitude = coordinates?.longitude ?: 0.0
                 ),
-                dateInMilliseconds = date?.let { Date(it * 1000) }
+                date = date?.let { Date(it * 1000) }
             )
         }
     }

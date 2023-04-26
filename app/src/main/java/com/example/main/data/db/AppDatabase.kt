@@ -3,8 +3,8 @@ package com.example.main.data.db
 import androidx.room.AutoMigration
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.example.main.db.dao.WeatherDao
-import com.example.main.db.entity.WeatherInfoEntity
+import com.example.main.data.db.dao.WeatherDao
+import com.example.main.data.db.entity.WeatherInfoEntity
 
 @Database(
     entities = [WeatherInfoEntity::class],
@@ -13,5 +13,5 @@ import com.example.main.db.entity.WeatherInfoEntity
 )
 abstract class AppDatabase : RoomDatabase() {
 
-    abstract fun getUserDao(): WeatherDao
+    abstract fun getWeatherDao(): WeatherDao
 }

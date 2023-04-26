@@ -11,5 +11,5 @@ data class WeatherInfo(
     val windSpeedInMetersPerSecond: Double,
     val imageUrl: String,
     val locationInfo: LocationInfo,
-    val dateInMilliseconds: Date?
+    val date: Date?
 ) : Serializable

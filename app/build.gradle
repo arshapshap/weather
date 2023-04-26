@@ -16,7 +16,10 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        buildConfigField("String", "WEATHER_API_KEY", WEATHER_API_KEY)
+        def credentialsProperties = new Properties()
+        file("credentials.properties").withInputStream { credentialsProperties.load(it) }
+
+        buildConfigField("String", "WEATHER_API_KEY", credentialsProperties.getProperty("WEATHER_API_KEY"))
         buildConfigField("String", "WEATHER_BASE_URL", WEATHER_BASE_URL)
         buildConfigField("String", "WEATHER_IMAGES_BASE_URL", WEATHER_IMAGES_BASE_URL)
     }
@@ -62,7 +65,7 @@ dependencies {
     def constraint_layout_version = '2.1.4'
     implementation "androidx.constraintlayout:constraintlayout:$constraint_layout_version"
 
-    def fragment_version = '1.5.6'
+    def fragment_version = '1.5.7'
     implementation "androidx.fragment:fragment-ktx:$fragment_version"
 
     def play_services_location_version = '21.0.1'

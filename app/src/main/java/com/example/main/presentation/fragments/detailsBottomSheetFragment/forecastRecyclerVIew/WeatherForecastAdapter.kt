@@ -1,4 +1,4 @@
-package com.example.main.recyclerview
+package com.example.main.presentation.fragments.detailsBottomSheetFragment.forecastRecyclerVIew
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
