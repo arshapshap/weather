@@ -1,9 +1,8 @@
 # Приложение погоды
 
-Android-приложение для отображения текущей погоды и прогноза погоды на 5 дней в заданном городе, использующее публичное API сервиса [OpenWeatherMap](https://openweathermap.org). 
-Приложение построено согласно Clean Architecture и реализует паттерн MVVM в UI-слое.
+  Android-приложение для отображения текущей погоды и прогноза погоды на 5 дней в заданном городе, использующее публичное API сервиса [OpenWeatherMap](https://openweathermap.org). Приложение построено согласно Clean Architecture и реализует паттерн MVVM в UI-слое.
 
-Данный проект был выполнен в качестве домашнего задания в рамках обучения разработке Android-приложений в КФУ ИТИС.
+  Данный проект был выполнен в качестве домашнего задания в рамках обучения разработке Android-приложений в КФУ ИТИС.
 
 ## Функционал
 
@@ -95,15 +94,21 @@ Android-приложение для отображения текущей пог
 
 ## Установка
 
-1. Склонируйте репозиторий: 
+  * Склонируйте репозиторий: 
 
-```bash
-git clone https://github.com/arshapshap/weather
-```
+  ```bash
+  git clone https://github.com/arshapshap/weather
+  ```
 
-2. Создайте файл `credentials.properties` в корне проекта.
-2. Создайте API ключ на сайте [OpenWeatherMap](https://openweathermap.org) и добавьте его в файл `credentials.properties` в формате: 
+  * Создайте файл `credentials.properties` в корне проекта.
+  * Создайте API ключ на сайте [OpenWeatherMap](https://openweathermap.org) и добавьте его в файл `credentials.properties` в формате: 
 
-```gradle
-WEATHER_API_KEY=your_key_here
-```
+  ```gradle
+  WEATHER_API_KEY=your_key_here
+  ```
+      
+## Скачивание
+      
+  - APK-файл доступен для скачивания в разделе Releases:
+
+    * https://github.com/arshapshap/weather/releases/tag/v1.0
