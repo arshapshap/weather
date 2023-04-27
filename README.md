@@ -11,7 +11,7 @@ Android-приложение для отображения текущей пог
 * Отображение текущей погоды и прогноза на ближайшие 5 дней каждые 3 часа;
 * Кеширование данных в БД приложения;
 
-https://user-images.githubusercontent.com/48681339/234639934-3b32d063-2ab5-4c8a-a57a-b948711b9b36.mp4
+<image src='https://user-images.githubusercontent.com/48681339/234848598-8ae0f4ad-a4c1-4156-aff0-a32556d6cd26.gif' width=200 />
 
 ## Используемые технологии
 
@@ -26,8 +26,11 @@ https://user-images.githubusercontent.com/48681339/234639934-3b32d063-2ab5-4c8a-
 * Glide
 * RecyclerView
 
-## Подробнее
 
+## Подробнее
+<details><summary>Подробное описание архитектуры</summary>
+  
+ 
 ### UI-слой
 <p float="left">
   <img src="https://user-images.githubusercontent.com/48681339/234835392-ecb0de7f-1b1c-4575-b522-280359521221.jpg" width="200" />
@@ -55,9 +58,9 @@ https://user-images.githubusercontent.com/48681339/234639934-3b32d063-2ab5-4c8a-
   * Список параметров текущей погоды: город, температура, влажность, давление, скорость ветра;
   * Список с прогнозом погоды на 5 дней. Каждый элемент содержит иконку дату, время, иконку погоды и температуру.
 
-  <sub>Оба списка отображаются с помощью `RecyclerView`.
+  <sub>Оба списка отображаются с помощью `RecyclerView`. Иконки загружаются по URL с помощью `Glide`.
     
-  <sub>У каждого из фрагментов есть соответствующая `ViewModel`, создающая с помощью аннотаций `@AssistedInject` и `@AssistedFactory`. В учебных целях координаты выбранного города с фрагмента `BottomSheetDialogFragment` передаются в `ViewModel` через конструктор с помощью аннотации `@Assisted`.
+  <sub>У каждого из фрагментов есть соответствующая `ViewModel`, создающая с помощью аннотаций `@AssistedInject` и `@AssistedFactory`. В учебных целях координаты выбранного города с фрагмента `BottomSheetDialogFragment` передаются в `ViewModel` через конструктор с помощью аннотации `@Assisted`. Для передачи информации из `ViewModel` во фрагменты используется `LiveData`.
     
   <sub>Также доступен английский язык. При повороте экрана приложение работает исправно.
 
@@ -86,7 +89,9 @@ https://user-images.githubusercontent.com/48681339/234639934-3b32d063-2ab5-4c8a-
     <sub>Для получения текущей погоды обращается к `WeatherApiService`, генерируемому с помощью `Retrofit`, а также к `WeatherDao`, генерируемому с помощью `Room`. Если в БД есть запись с погодой в выбранном городе, обновленная менее чем минуту назад, возвращается информация из БД, иначе отправляется запрос на сервер. Ответ с сервера кэшируется в БД.
   * WeatherForecastRepositoryImpl:
       
-    <sub>Работает аналогично `WeatherRepositoryImpl`. В учебных целях (для знакомства с аннотацией `@Named`) для сервисов `WeatherApiService` и `WeatherForecastApiService` используются разные экземпляры `Retrofit`. 
+    <sub>Работает аналогично `WeatherRepositoryImpl`. В учебных целях (для знакомства с аннотацией `@Named`) для сервисов `WeatherApiService` и `WeatherForecastApiService` используются разные экземпляры `Retrofit`.
+      
+</details>
 
 ## Установка
 
