@@ -17,11 +17,12 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         def credentialsProperties = new Properties()
-        file("credentials.properties").withInputStream { credentialsProperties.load(it) }
+        project.rootProject.file("credentials.properties").withInputStream { credentialsProperties.load(it) }
 
         buildConfigField("String", "WEATHER_API_KEY", credentialsProperties.getProperty("WEATHER_API_KEY"))
         buildConfigField("String", "WEATHER_BASE_URL", WEATHER_BASE_URL)
         buildConfigField("String", "WEATHER_IMAGES_BASE_URL", WEATHER_IMAGES_BASE_URL)
+        signingConfig signingConfigs.debug
     }
 
     buildTypes {
