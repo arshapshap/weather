@@ -1,4 +1,4 @@
-package com.example.main.presentation
+package com.example.main.presentation.utils
 
 import android.os.Build
 import android.os.Bundle

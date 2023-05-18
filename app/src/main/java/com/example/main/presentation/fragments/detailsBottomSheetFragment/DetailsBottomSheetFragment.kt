@@ -16,7 +16,7 @@ import com.example.main.domain.models.WeatherInfo
 import com.example.main.presentation.fragments.detailsBottomSheetFragment.forecastRecyclerVIew.WeatherForecastAdapter
 import com.example.main.presentation.fragments.detailsBottomSheetFragment.parametersRecyclerVIew.WeatherParameter
 import com.example.main.presentation.fragments.detailsBottomSheetFragment.parametersRecyclerVIew.WeatherParametersAdapter
-import com.example.main.presentation.getSerializableCompat
+import com.example.main.presentation.utils.getSerializableCompat
 import com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_EXPANDED
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -53,7 +53,10 @@ class DetailsBottomSheetFragment :
     private fun initViews(weatherInfo: WeatherInfo) {
         val parameters = getWeatherParameters(weatherInfo)
         with(binding) {
-            Glide.with(binding.root).load(weatherInfo.imageUrl).into(weatherImageView)
+            Glide
+                .with(binding.root)
+                .load(weatherInfo.imageUrl)
+                .into(weatherImageView)
 
             infoRecyclerView.adapter = WeatherParametersAdapter(parameters)
             forecastRecyclerView.adapter = WeatherForecastAdapter(listOf())
