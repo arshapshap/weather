@@ -1,0 +1,70 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "4a2368b7a03fda13a3766e9beaa19544",
+    "entities": [
+      {
+        "tableName": "Weather",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`city_name` TEXT NOT NULL, `temperature_in_celsius` INTEGER NOT NULL, `humidity_as_percentage` INTEGER NOT NULL, `pressure_in_millimeters_of_mercury` INTEGER NOT NULL, `wind_speed_in_meters_per_second` REAL NOT NULL, `image_url` TEXT NOT NULL, `last_update` INTEGER NOT NULL, PRIMARY KEY(`city_name`))",
+        "fields": [
+          {
+            "fieldPath": "cityName",
+            "columnName": "city_name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "temperatureInCelsius",
+            "columnName": "temperature_in_celsius",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "humidityAsPercentage",
+            "columnName": "humidity_as_percentage",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "pressureInMillimetersOfMercury",
+            "columnName": "pressure_in_millimeters_of_mercury",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "windSpeedInMetersPerSecond",
+            "columnName": "wind_speed_in_meters_per_second",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "imageUrl",
+            "columnName": "image_url",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lastUpdate",
+            "columnName": "last_update",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "city_name"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '4a2368b7a03fda13a3766e9beaa19544')"
+    ]
+  }
+}
